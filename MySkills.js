@@ -17,6 +17,24 @@ export const MySkills = ({navigation}) => {
   const [studentData, setStudentData] = useState(null);
   const [radius, setRadius] = useState(20);
 
+  const styles = StyleSheet.create({
+    sectionMain: {
+      marginTop: 32,
+      paddingHorizontal: 24,
+      backgroundColor: 'yellow',
+      flexDirection: 'column'
+    },
+    textMain: {
+      color: 'white',
+      fontSize: 32,
+      margin: 19
+    },
+    scrollView: {
+      backgroundColor: 'lightgray',
+      marginHorizontal: 0,
+    },
+  });
+
   const getColor = ((start,status)=>{
     if (status == 'not started') return 'lightgray';
 
@@ -102,9 +120,7 @@ export const MySkills = ({navigation}) => {
   }
 
   const getSlice = (slice,status) => {
-
     var opacity = 0;
-    //if (slice.s == 0) { return ''}
     if (slice.s == 1) { opacity = 0.6}
     console.log(slice.s)
     switch(slice.p) {
@@ -143,26 +159,18 @@ export const MySkills = ({navigation}) => {
         <ScrollView style={styles.scrollView}>
           <Svg width={'990px'} height={'660px'}>
           {studentData !== null && studentData.items.map((item,i)=>{
-            //console.log(item.trainer)
             var color = getColor(item.start, item.status)
-            //var trainer = item.trainer;
-            //console.log(color)
             var transform = `translate(10,${i*70})`
             return (
               <G key={i} transform={transform} onPress={() => {navigation.navigate('SwipeGuide', { item: item })}}>
-                <Rect x ="0" y ="10" height ="60" width ="370" rx ="10" ry ="10" stroke="black" fill="white" />
-                <Rect x ="0" y ="10" height ="60" width ="30" rx ="10" ry ="10" fill={color} />
-                <Rect x ="20" y ="10" height ="59" width ="270" rx ="0" ry ="0" fill="white" />
-                <Textsvg fontSize="18" fill="black" x ="30" y ="38" width="300" stroke="black">{item.skill.skillName}</Textsvg>
-                <Textsvg fontSize="14" fill="black" x ="30" y ="58" width="300" stroke="black">status: {item.status}</Textsvg>
-
+                <Rect x="0" y="10" height="60" width="370" rx="10" ry="10" stroke="black" fill="white" />
+                <Rect x="0" y="10" height="60" width="30" rx="10" ry="10" fill={color} />
+                <Rect x="20" y="10" height="59" width="270" rx="0" ry="0" fill="white" />
+                <Textsvg fontSize="18" fill="black" x ="30" y="38" width="300" stroke="black">{item.skill.skillName}</Textsvg>
+                <Textsvg fontSize="14" fill="black" x ="30" y="58" width="300" stroke="black">status: {item.status}</Textsvg>
                 {item.trainer == 'yes' &&
-                <>
                 <Textsvg fontSize="28" fill="black" x ="3" y ="51" width="30" height="30" stroke="black">T</Textsvg>
-                {/* <Textsvg fontSize="28" fill="black" x ="327" y ="51" width="30" height="30" stroke="black">T</Textsvg> */}
-                </>
                 }
-
                 {item.status == 'started' &&
                 <G transform={'translate(310,15)'}>
                   <Svg width={pieWidth} height={pieHeight} viewBox="-1 -1 2 2" style="transform: rotate(-0.25turn)">
@@ -178,7 +186,6 @@ export const MySkills = ({navigation}) => {
                   }
                 </G>
                 }
-
               </G>
             )
           })}
@@ -194,20 +201,3 @@ export const MySkills = ({navigation}) => {
   );
 };
 
-const styles = StyleSheet.create({
-  sectionMain: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-    backgroundColor: 'yellow',
-    flexDirection: 'column'
-  },
-  textMain: {
-    color: 'white',
-    fontSize: 32,
-    margin: 19
-  },
-  scrollView: {
-    backgroundColor: 'lightgray',
-    marginHorizontal: 0,
-  },
-});
