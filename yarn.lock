@@ -5659,7 +5659,7 @@
     "kleur" "^3.0.3"
     "sisteransi" "^1.0.5"
 
-"prop-types@^15.7.2":
+"prop-types@^15.6.2", "prop-types@^15.7.2":
   "integrity" "sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ=="
   "resolved" "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz"
   "version" "15.7.2"
@@ -5733,6 +5733,13 @@
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
+
+"react-native-camera@^3.44.1":
+  "integrity" "sha512-B95RL3laK2v8R7L/37v28MYcEcwsM/mS94h6EZuRMLH5HFolkAwh7zJo+UAn7FG9eFtAdBwIM6s9OqYudTVO4Q=="
+  "resolved" "https://registry.npmjs.org/react-native-camera/-/react-native-camera-3.44.1.tgz"
+  "version" "3.44.1"
+  dependencies:
+    "prop-types" "^15.6.2"
 
 "react-native-codegen@^0.0.6":
   "integrity" "sha512-cMvrUelD81wiPitEPiwE/TCNscIVauXxmt4NTGcy18HrUd0WRWXfYzAQGXm0eI87u3NMudNhqFj2NISJenxQHg=="

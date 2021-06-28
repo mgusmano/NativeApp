@@ -12,18 +12,6 @@ import {
 export const Location = ({navigation}) => {
   const [location, setLocation] = useState(null);
 
-  const styles = StyleSheet.create({
-    logo: {
-      width: 366,
-      height: 58,
-    },
-    textMain: {
-      color: 'black',
-      fontSize: 28,
-      margin: 19
-    },
-  });
-
   const permissionHandle = async () => {
     console.log('here')
     let permission = await RNLocation.checkPermission({
@@ -66,24 +54,36 @@ export const Location = ({navigation}) => {
     <SafeAreaView style={{flexDirection: "column",height: 800,padding: 0, backgroundColor: 'white'}}>
 
       <View style={{ backgroundColor: "white", flex: .15, flexDirection: 'column'}}>
-        <Image style={styles.logo} source={require('./SwipeGuide.png')}/>
+        <Image style={styles.logo} source={require('../resources/images/SwipeGuide.png')}/>
       </View>
 
       <View style={{ backgroundColor: "#298784", flex: .07, flexDirection: 'row'}}>
-
-
-            <Button color='white' title="Get Location" onPress={permissionHandle}/>
-
+        <Button color="#298784" title="Get Location" onPress={permissionHandle}/>
       </View>
 
-      <View style={{ backgroundColor: "white", flex: 1, flexDirection: 'row'}}>
+      <View style={{ backgroundColor: "white", flex: 1, flexDirection: 'column'}}>
         {location !== null &&
-        <Text style={styles.textMain} >longitude:{location.longitude} latitude:{location.latitude}</Text>
+        <>
+        <Text style={styles.textMain} >longitude:</Text>
+        <Text style={styles.textMain} >{location.longitude}</Text>
+        <Text style={styles.textMain} >latitude:</Text>
+        <Text style={styles.textMain} >{location.latitude}</Text>
+        </>
         }
-
       </View>
-
 
     </SafeAreaView>
   )
 }
+
+const styles = StyleSheet.create({
+  logo: {
+    width: 366,
+    height: 58,
+  },
+  textMain: {
+    color: 'black',
+    fontSize: 28,
+    margin: 19
+  },
+});

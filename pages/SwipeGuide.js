@@ -8,12 +8,12 @@ export const SwipeGuide = ({ route, navigation }) => {
   const styles = StyleSheet.create({
     textMain: {
       color: 'white',
-      margin: 20,
+      margin: 10,
       fontSize: 24
     },
     textHeader: {
       color: 'white',
-      margin: 10,
+      margin: 5,
       fontSize: 24
     },
   });
